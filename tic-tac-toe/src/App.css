@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-rows: 100px 100px 500px;
+  width:60%;
+  height:650px;
+  background-color: blueviolet;
+  margin-left:300px;
+}
+
+.player{
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+.board{
+ display:grid;
+ grid-template-columns: repeat(3,10vw);
+grid-template-rows: repeat(3,10vw);
+ 
+ 
+ justify-items: stretch;
+ justify-content: center;
+ }
+ 
+ .board  div {
+ display: flex;
+ align-items: center;
+ border: 3px solid black;
+ }
+ 
+ h4 {
+ text-align: center;
+ flex-basis: 100%;
+ align-self: center;
+ }
+  
