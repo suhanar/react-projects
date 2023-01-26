@@ -2,10 +2,22 @@ import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 function EmployeeList({item,deleteItem,editItem}) {
+
+  
+
+
+
+
   return (
     <div className='list-div'>
-      <div className='home-add-btn' style={{marginLeft:'100px'}}>
-        <Link to='/emp'>
+      <div className='home-add-btn1' style={{marginLeft:'100px'}}>
+       
+
+          <Link to='/'>
+          <button className='home-add home-change'>Go To Home</button>
+          </Link>
+
+          <Link to='/emp'>
           <button className='home-add home-change'>Add Employee</button>
           </Link>
       </div>

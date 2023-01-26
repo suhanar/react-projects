@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import EmployeeList from './EmployeeList';
 import { Outlet, Link } from "react-router-dom";
+import Success from './Success';
 
-function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,setIsEdit,img,setImg}) {
+function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,setIsEdit,img,setImg,show,setShow}) {
   
   
 
@@ -21,8 +22,11 @@ function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,s
 
     const fr = new FileReader();
     fr.readAsDataURL(e.target.files[0]);
+    const fileName = e.target.files[0].name;
+    //console.log(e.target.files[0].name)
     fr.addEventListener('load',()=>{    //async
       const url = fr.result;
+      console.log(fr.result);
       //console.log(url);
       // const img = new Image();
       // img.src=url;
@@ -39,7 +43,12 @@ function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,s
     e.preventDefault();
     addItem(input,Designation,img);
     setIsEdit(false);
+    setShow(!show)
     
+    
+    
+   
+    //console.log(img);
     // if(isEdit){
     //   alert('Edited');
     // }
@@ -51,27 +60,40 @@ function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,s
     
   }
   return (
-    <div className='form-div'>
+    <div className='form-div' id="form-div">
       <form onSubmit={handleSubmit} className='form-div2'>
-        <input type='file'  onChange={handleChange2} accept ="image/*"/>
+        <label className="custom-file-upload">
+        <input type='file' id="file" onChange={handleChange2} accept ="image/*"/>
+        </label>
    <input placeholder="Add name of Employee" type="text" value={input} onChange={handleChange} required/>
    <input placeholder="Designation" type="text" value={Designation} onChange={handleChange1} required/>
+
+
+   
   
-   <button className={isEdit?'green':'blue'}>{!isEdit ? "Add Employee" : "Edit Employee"}</button>
+   <button  className={isEdit?'green':'blue'}>{!isEdit ? "Add Employee" : "Edit Employee"}</button>
    
   
    {/* <button onClick={()=>addItem(input,Designation)} className={isEdit?'green':'blue'}>{!isEdit ? "Add Employee" : "Edit Employee"}</button> */}
       </form>
 
-      <div className='home-add-btn'>
+      <div className='home-add-btn1'>
+      <Link to='/'>
+          <button className='home-edit home-change'>← Go Home</button>
+          </Link>
        
 
          <Link to='/list'>
-          <button className='home-edit home-change' style={{marginTop:'20px',backgroundColor:'black',marginLeft:'70px'}}>Edit Employee</button>
+          <button className='home-edit home-change'>See List →</button>
           </Link>
         </div>
 
+
       {/* <EmployeeList item={item} deleteItem={deleteItem} editItem={editItem}/>  */}
+      {
+        show==true&&<Success show={show} setShow={setShow} />
+      }
+      
        
     </div>
   )

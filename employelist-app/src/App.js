@@ -16,6 +16,11 @@ function App() {
   const [img,setImg] = useState(null);
   const [isEdit,setIsEdit] = useState(false);
   const [edit,setEdit] = useState('');
+  const [search,setSearch] = useState('');
+  const [isSearch,setIsSearch] = useState(false);
+  const [show,setShow] = useState(false);
+  const [delShow,setdelShow] = useState(false);
+  
 
 
   useEffect(() => {
@@ -40,17 +45,27 @@ function App() {
     console.log(item);
     setInput('');
     setDesignation('');
+   
     
     
   }
 
   const deleteItem = (id)=>{
-    const newList = item.filter((el)=> el.id !== id);
+   
+
+    const del = prompt('Do you want to delete the user? type y or n for no');
+    if(del.toLowerCase() == 'y'){
+      const newList = item.filter((el)=> el.id !== id);
     localStorage.setItem(
       "employee",
       JSON.stringify([...newList])
     )
     setItem(newList);
+
+    }else{
+      return item;
+    }
+    
   }
   const editItem = (id)=>{
     const newList = item.filter((el)=> el.id !== id);
@@ -62,6 +77,21 @@ function App() {
     setIsEdit(!isEdit);
 
   }
+
+
+//   const searchItem = (term)=>{
+    
+//     const newItem = item.filter((el)=> el.name.toLowerCase() === term.toLowerCase());
+    
+//       //setItem(newItem);
+//       setArr(newItem);
+    
+//     setSearch('');
+    
+//     console.log(term);
+// }
+
+
   
   return (
     
@@ -77,9 +107,9 @@ function App() {
    
       
     
-      <Route path="/" element={<HomePage item={item}/>} />
-        <Route path='/emp' element={<AddEmployee addItem={addItem}  input={input} setInput={setInput} Designation={Designation} setDesignation={setDesignation} isEdit={isEdit} setIsEdit={setIsEdit} img={img} setImg={setImg}/>} />
-        <Route path='/list' element={ <EmployeeList item={item} deleteItem={deleteItem} editItem={editItem}/>} />
+      <Route path="/" element={<HomePage  item={item} setItem={setItem} search={search} setSearch={setSearch}  isSearch={isSearch} setIsSearch={setIsSearch} />} />
+        <Route path='/emp' element={<AddEmployee addItem={addItem}  input={input} setInput={setInput} Designation={Designation} setDesignation={setDesignation} isEdit={isEdit} setIsEdit={setIsEdit} img={img} setImg={setImg} show={show} setShow={setShow}/>} />
+        <Route path='/list' element={ <EmployeeList item={item} deleteItem={deleteItem} editItem={editItem} delShow={delShow} setdelShow={setdelShow}/>} />
        
        
         {/* <AddEmployee addItem={addItem}  input={input} setInput={setInput} Designation={Designation} setDesignation={setDesignation} isEdit={isEdit} setIsEdit={setIsEdit}/>
