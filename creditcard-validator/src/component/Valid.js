@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import MessageSuccess from './MessageSuccess';
 import MessageFailed from './MessageFailed';
 
@@ -12,9 +12,9 @@ function Valid({input,setInput,success,setSuccess,failed,setFailed,error,setErro
         setError(false);
     }
 
+   
     const handleSubmit = (e) =>{
         e.preventDefault();
-
         if(input == ''){
             setError(!error);
         }
@@ -46,6 +46,7 @@ function Valid({input,setInput,success,setSuccess,failed,setFailed,error,setErro
         }
         setInput('');
 
+      
     }
 
 

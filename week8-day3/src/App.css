@@ -1,0 +1,56 @@
+.App {
+padding:10px;
+  
+  
+}
+.App h1{
+  text-align: center;
+}
+.student-card{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:30px;
+
+  
+}
+.info{
+  border:2px solid black;
+  padding:30px;
+  position: relative;
+}
+.name{
+  text-align: center;
+  background-color: black;
+  color:white;
+  width:40%;
+  position: absolute;
+  top:0px;
+  left:190px;
+  padding:10px;
+}
+.info p{
+  position: absolute;
+  top:60px;
+  text-align: justify;
+  padding: 20px;
+}
+.score-card{
+  margin-top:240px;
+}
+.score-details{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding:10px;
+  background-color: black;
+  color: white;
+  width:80%;
+  margin-left:50px;
+  border-bottom:1px solid white;
+  
+}
+.score h4{
+  text-align: center;
+}
+
+
