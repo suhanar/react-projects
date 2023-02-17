@@ -13,6 +13,8 @@ function App() {
   const [item,setItem] = useState([]);
   const [input,setInput] = useState('');
   const [Designation,setDesignation] = useState('');
+  const [email,setEmail] = useState('');
+  const [ph,setPh] = useState('');
   const [img,setImg] = useState(null);
   const [isEdit,setIsEdit] = useState(false);
   const [edit,setEdit] = useState('');
@@ -32,19 +34,23 @@ function App() {
 
   
 
-  const addItem = (item1,item2,img) =>{
+  const addItem = (item1,item2,img,email,ph) =>{
     const newItem = { 
                 img1:img,
                 name:item1,
                 designation:item2,
+                email:email,
+                ph:ph,
                 id:Math.random(),
               };
     localStorage.setItem("employee", JSON.stringify([newItem, ...item]))
     
     setItem([newItem,...item]);
-    console.log(item);
+    //console.log(item);
     setInput('');
     setDesignation('');
+    setEmail('');
+    setPh('');
    
     
     
@@ -75,6 +81,8 @@ function App() {
     setItem(newList);
     setDesignation(edit.designation)
     setIsEdit(!isEdit);
+    setEmail(edit.email);
+    setPh(edit.ph);
 
   }
 
@@ -108,7 +116,7 @@ function App() {
       
     
       <Route path="/" element={<HomePage  item={item} setItem={setItem} search={search} setSearch={setSearch}  isSearch={isSearch} setIsSearch={setIsSearch} />} />
-        <Route path='/emp' element={<AddEmployee addItem={addItem}  input={input} setInput={setInput} Designation={Designation} setDesignation={setDesignation} isEdit={isEdit} setIsEdit={setIsEdit} img={img} setImg={setImg} show={show} setShow={setShow}/>} />
+        <Route path='/emp' element={<AddEmployee addItem={addItem}  input={input} setInput={setInput} Designation={Designation} setDesignation={setDesignation} isEdit={isEdit} setIsEdit={setIsEdit} img={img} setImg={setImg} show={show} setShow={setShow} email={email} setEmail={setEmail} ph={ph} setPh={setPh}/>} />
         <Route path='/list' element={ <EmployeeList item={item} deleteItem={deleteItem} editItem={editItem} delShow={delShow} setdelShow={setdelShow}/>} />
        
        

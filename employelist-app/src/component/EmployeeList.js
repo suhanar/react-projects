@@ -45,6 +45,7 @@ function EmployeeList({item,deleteItem,editItem}) {
     <th>Photo</th>
     <th>Name</th>
     <th>Designation</th>
+    <th>Email</th>
     <th>Edit Action</th>
     <th>Delete Action</th>
   </tr>
@@ -53,8 +54,9 @@ function EmployeeList({item,deleteItem,editItem}) {
     <td><img   src={el.img1} alt="not found" style={{width:'50px',height:'50px'}}/></td>
     <td>{el.name}</td>
     <td>{el.designation}</td>
-    <td><Link to='/emp'> <button className='list-edit-btn' onClick={()=>editItem(el.id)}>Edit</button></Link></td>
-    <td><button className='list-del-btn'  onClick={()=>deleteItem(el.id)}>Delete</button></td>
+    <td>{el.email}</td>
+    <td><Link to='/emp'> <i className='fa fa-edit ' onClick={()=>editItem(el.id)} style={{fontSize:'20px',color:'blue',cursor:'pointer'}} /></Link></td>
+    <td><i className='fa fa-trash'  onClick={()=>deleteItem(el.id)} style={{fontSize:'20px',color:'red',cursor:'pointer'}} /></td>
   </tr>
 
 )

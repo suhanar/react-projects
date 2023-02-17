@@ -3,7 +3,7 @@ import EmployeeList from './EmployeeList';
 import { Outlet, Link } from "react-router-dom";
 import Success from './Success';
 
-function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,setIsEdit,img,setImg,show,setShow}) {
+function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,setIsEdit,img,setImg,show,setShow,email,ph,setEmail,setPh}) {
   
   
 
@@ -13,6 +13,13 @@ function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,s
   const handleChange1 = (e)=>{
     setDesignation(e.target.value)
   }
+  const handleChangeEmail = (e)=>{
+    setEmail(e.target.value)
+  }
+  const handleChangePh = (e)=>{
+    setPh(e.target.value)
+  }
+  
   const handleChange2 = (e)=>{
     // if(e.target.files){
     //   setImg(e.target.files[0])
@@ -41,7 +48,7 @@ function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,s
  
   const handleSubmit = (e)=>{
     e.preventDefault();
-    addItem(input,Designation,img);
+    addItem(input,Designation,img,email,ph);
     setIsEdit(false);
     setShow(!show)
     
@@ -65,8 +72,11 @@ function AddEmployee({addItem,input,setInput,Designation,setDesignation,isEdit,s
         <label className="custom-file-upload">
         <input type='file' id="file" onChange={handleChange2} accept ="image/*"/>
         </label>
-   <input placeholder="Add name of Employee" type="text" value={input} onChange={handleChange} required/>
-   <input placeholder="Designation" type="text" value={Designation} onChange={handleChange1} required/>
+   <input className='input-div' placeholder="Add name of Employee" type="text" value={input} onChange={handleChange} required/>
+   <input className='input-div' placeholder="Designation" type="text" value={Designation} onChange={handleChange1} required/>
+
+   <input className='input-div' placeholder="Email" type="text" value={email} onChange={handleChangeEmail} required/>
+   <input className='input-div' placeholder="Phone Number" type="text" value={ph} onChange={handleChangePh} required/>
 
 
    

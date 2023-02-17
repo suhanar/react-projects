@@ -1,9 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Outlet, Link } from "react-router-dom";
+import Modal from './Modal';
 import Search from './Search';
 
 
 function HomePage({item,arr,search,setSearch,searchItem,setItem,isSearch, setIsSearch }) {
+  const [h1,setH1] = useState(false);
+  const [show,setShow] = useState(false);
+  const [itemList,setItemList]=useState();
   return (
     <div className='homepage'>
       
@@ -25,11 +29,20 @@ function HomePage({item,arr,search,setSearch,searchItem,setItem,isSearch, setIsS
 
 
 
-        <div className='home-grid'>
+        <div className='home-grid' id="home-grid">
+          {
+            item.length == 0 && 
+              <h3> No Employee Details to show. Add Some Emplyee Details using Add Button</h3>
+            
+          }
+          
+        
         {
         item.filter((val)=>{
       if(search == ''){
-        return val
+       
+       
+        return val;
       }else if( val.name.toLowerCase().includes(search.toLowerCase())){
         return val;
       }
@@ -37,7 +50,8 @@ function HomePage({item,arr,search,setSearch,searchItem,setItem,isSearch, setIsS
       return (
         
        
-      <div className='home-details'>
+      <div className='home-details' onClick={()=>{setShow(true);setItemList(el)}}>
+        
       <div className='home-img'>
             <img src={el.img1} />
       </div>
@@ -45,10 +59,19 @@ function HomePage({item,arr,search,setSearch,searchItem,setItem,isSearch, setIsS
             <h4>{el.name}</h4>
             <h6>{el.designation}</h6>
        </div>
-       
+         
     </div>
+
+
     )
-})}
+})
+
+
+
+}
+{
+  show && <Modal onClose={()=>setShow(false) } show={show} itemList={itemList} />
+}
 
 </div>
 

@@ -21,7 +21,7 @@ function Search({search,setSearch,isSearch, setIsSearch,item}) {
     
         <div className='home-input'>
            
-            <input placeholder='Search...' type="text" onChange={handleChange} value={search} />
+            <input placeholder='Search By Employer Name...' type="text" onChange={handleChange} value={search} />
             {/* <button className='home-btn'>Search</button> */}
             <i class="fa fa-search home-btn"></i>
            

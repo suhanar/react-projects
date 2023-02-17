@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width:100vw;
 }
 
 .green{
@@ -16,6 +17,8 @@
   width: 100%;
   height:40px;
   text-align: center;
+  position: fixed;
+  z-index: 2;
  
 }
 .footer {
@@ -44,12 +47,13 @@
 }
 .home-input{
   margin-top:80px;
+  /* margin-left:-30%; */
 
   
 }
 .home-input input{
   width:50%;
-  height:90%;
+  height:170%;
   border-radius: 10px;
   position:relative;
   border:1px solid lightgray;
@@ -63,7 +67,8 @@
   right:300px;
   border-radius: 5px;
   border:none;
-  top: 100px;
+  top: 90px;
+  right:350px;
   width:5%;
   height:30px;
   color:lightgrey
@@ -124,9 +129,12 @@
   display:grid;
   grid-template-columns: repeat(3,1fr);
   grid-gap:80px;
+
+
+  
   width:90%;
   
-  justify-items: flex-start;
+  /* justify-items: flex-start; */
   margin-left: 50px;
  
   
@@ -174,13 +182,19 @@ tr:nth-child(even) {
 .form-div{
   box-sizing: border-box;
   background-color: rgb(75, 65, 114);
-  width:50%;
+  
   
   margin-top:100px;
-  padding:100px;
+  padding:50px;
   margin-left:300px;
   
   box-shadow: 5px 10px #e9e1e1;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top:100px;
+  width:50%;
+  margin-left:300px;
   
   
   
@@ -192,8 +206,13 @@ tr:nth-child(even) {
   
  
 }
-input[type=text] {
-  padding: 10px;
+/* input[type=text] */
+ .input-div{
+  display:flex;
+  width:100%;
+
+
+  padding: 10px 0px;
   margin:10px 0;
   border:0; 
   border-bottom:1px solid #eee;
@@ -256,5 +275,219 @@ input[type=file]{
   margin-bottom:20px;
   width:50%;
   margin-left:20px;
+  
+}
+.modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:30vw;
+  height:90vh;
+  background-color:rgb(26, 5, 77);
+  position: absolute;
+  box-shadow: 10px 13px 40px rgb(0 0 0 / 0.2);
+  left:450px;
+  /* top:50px; */
+  color:white
+}
+.modal-h4{
+  font-size: 18px;;
+  border-bottom:1px solid rgb(218, 213, 213);
+}
+.modal-img-name{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+  margin-top:10px;
+  
+}
+.modal-img-name div{
+ 
+}
+.modal-details{
+  margin-top:20px;
+  
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* position:absolute;
+  top:150px;
+  left:50px; */
+  margin:10px;
+
+ 
+}
+.modal-details div{
+  border:1px solid rgb(216, 212, 212);
+  padding:2px;
+}
+.close{
+  float: right;
+  padding:2px;
+}
+.close button{
+  padding:4px;
+  background-color: red;
+  color:white;
+}
+
+@media (max-width:1200px){}
+@media (max-width:991px){}
+@media (max-width:768px){
+
+  .home-grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:80px;
+  
+  
+    
+    width:80%;
+    
+    /* justify-items: flex-start; */
+    margin-left: 100px;
+   
+    
+  }
+  .home-details{
+   
+    width: 60%;
+    height:90%;
+    
+  }
+  .home-input input{
+    width:50%;
+   
+   
+  
+    
+  }
+  .home-btn{
+    display:none;
+  }
+  .home-add-btn {
+  
+    margin-left:120px;
+    
+  }
+  .modal{
+   
+    width:100vw;
+    height:90vh;
+   
+    left:0px;
+    justify-content: center;
+   
+   
+  }.modal-h4{
+    font-size: 12px;;
+    
+  }
+}
+@media (max-width:400px){
+  .home-grid{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap:80px;
+  
+  
+    
+    width:60%;
+    
+    /* justify-items: flex-start; */
+    margin-left: 50px;
+   
+    
+  }
+  .home-details{
+   
+    width:100%;
+    height:90%;
+    
+  }
+  .home-input input{
+    width:50%;
+   
+   
+  
+    
+  }
+  .home-add-btn {
+  
+    margin-left:50px;
+    
+  }
+  .cl{
+    
+    width: 100%;
+    
+   
+  }
+  .home-btn{
+    display:none;
+  }
+  .modal{
+   
+    width:100vw;
+    height:90vh;
+   
+    left:0px;
+    justify-content: center;
+   
+   
+  }.modal-h4{
+    font-size: 12px;;
+    
+  }
+  .modal-img-name{
+   
+    margin-top:0px;
+    
+  }
+  .modal-img-name div{
+   
+  }
+  .modal-details{
+    margin-top:20px;
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* position:absolute;
+    top:150px;
+    left:50px; */
+   
+  
+   
+  }
+  .modal-details div{
+    
+    padding:0px;
+  }
+  .form-div{
+   
+    /* width:50%;
+    
+    margin-top:100px;
+    padding:100px;
+    margin-left:300px;
+    
+    box-shadow: 5px 10px #e9e1e1; */
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top:100px;
+    width:90%;
+    margin-left:20px;
+    
+    
+    
+  }
+  
+
+  
   
 }
